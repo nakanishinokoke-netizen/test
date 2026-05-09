@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>怪獣大決戦 in 東京</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="orientation-overlay">
+        <div class="icon">🔄</div>
+        <p>画面を横にして<br>あそんでね！</p>
+    </div>
+
+    <div id="game-wrapper">
+        <div id="startScreen">
+            <h1>怪獣大決戦 in 東京</h1>
+            <p style="font-size: 12px; margin-bottom: 10px;">キャラクターを選んで出撃せよ！</p>
+            <div class="select-buttons">
+                <button id="btnMothra" class="char-btn">
+                    <img src="images/mothra_sheet.png" alt="モスラ">
+                    <span>モスラ</span>
+                </button>
+                <button id="btnGodzilla" class="char-btn">
+                    <img src="images/godzilla_sheet.png" alt="ゴジラ">
+                    <span>ゴジラ</span>
+                </button>
+            </div>
+            <p class="controls-info">操作: 下のボタンをタップ<br>(PC: [SPACE]/[F])</p>
+        </div>
+
+        <div id="gameContainer" style="display: none;">
+            <canvas id="gameCanvas" width="800" height="400"></canvas>
+            
+            <div id="mobileControls">
+                <button id="btnJump" class="action-btn">JUMP</button>
+                <button id="btnAttack" class="action-btn">ATTACK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
