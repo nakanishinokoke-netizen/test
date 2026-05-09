@@ -29,8 +29,12 @@ document.getElementById('btnGodzilla').onclick = () => startGame('godzilla');
 
 function startGame(type) {
     // ★追加: スタート時に画面の向きをチェック
-    if (!isLandscape()) return; 
+    if (!isLandscape()) {
+        console.log('Landscape check failed, cannot start game');
+        return; 
+    }
 
+    console.log('Starting game with', type);
     playerType = type;
     enemyType = type === 'mothra' ? 'godzilla' : 'mothra';
     
@@ -57,6 +61,14 @@ function startGame(type) {
 
 // ★追加: 横画面かどうかを判定する関数
 function isLandscape() {
+    // デバッグ: 現在の画面サイズを表示
+    console.log('Window size:', window.innerWidth, 'x', window.innerHeight, 'ratio:', (window.innerWidth / window.innerHeight));
+    
+    // プレビュー時は条件を緩和（開発用）
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        return true; // ローカル開発時は常に許可
+    }
+    
     // CSSと合わせて、幅950px以下の時は横長画面（アスペクト比13/9以上）である必要がある
     if (window.innerWidth <= 950) {
         return (window.innerWidth / window.innerHeight) >= (13 / 9);
